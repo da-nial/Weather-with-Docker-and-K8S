@@ -1,0 +1,2 @@
+weather-url: http://api.weatherstack.com/current?access_key=REDACTED&query=Tehran
+port: 9000

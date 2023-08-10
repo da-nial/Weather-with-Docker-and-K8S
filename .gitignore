@@ -1,0 +1,6 @@
+venv
+k8s/configmap.yaml
+src/config/conf.yml
+.idea
+*/__pycache__/
+*.pyc

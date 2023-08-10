@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: server
+  name: server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: server
+  strategy: { }
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: server
+    spec:
+      containers:
+        - image: nialda/server
+          name: server
+          resources: { }
+          ports:
+            - containerPort: 8080
+          env:
+            - name: CONFIG_PATH
+              value: "/config/config.yml"
+          volumeMounts:
+            - mountPath: config
+              name: configmap
+      volumes:
+        - name: configmap
+          configMap:
+            name: server-config
